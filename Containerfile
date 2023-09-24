@@ -7,7 +7,7 @@ LABEL maintainer="John Doe" version="1.0" description="this is Containerfile"
 # DocumentRoot for Apache
 ENV DOCROOT=/var/www/html
 
-RUN yum install -y --no-docs --disableplugin=subscription-manager httpd && \
+RUN yum install -y --nodocs --disableplugin=subscription-manager httpd && \
  yum clean all --disableplugin=subscription-manager -y 
  
 EXPOSE 80
@@ -21,5 +21,8 @@ RUN mkdir -p /var/www/html && \
 
 
 # Launch httpd
+
+ONBUILD COPY src/ /var/www/html
+
 
 CMD /usr/sbin/httpd -DFOREGROUND
