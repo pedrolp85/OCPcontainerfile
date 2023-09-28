@@ -6,6 +6,12 @@ LABEL maintainer="John Doe"
 LABEL version="1.0"
 LABEL description="this is Containerfile"
 
+# Labels consumed by RHOCP
+LABEL io.k8s.description="A basic Apache HTTP Server S2I builder image" 
+LABEL io.k8s.display-name="Apache HTTP Server S2I builder image for DO288" 
+LABEL io.openshift.expose-services="80:http" 
+
+
 # DocumentRoot for Apache
 ENV DOCROOT=/var/www/html
 
